@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.2.23)  12 DEC 2022 23:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.2.23)  13 DEC 2022 11:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -664,15 +664,6 @@ LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 1
 LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 1
 18.
 
-
-LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 1
-18.
-
-
-LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 1
-18.
-
-Missing character: There is no Ј in font cmr12!
 Missing character: There is no Ј in font cmr12!
 [4 <./pics//graph.png>]
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
@@ -692,15 +683,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 361--362
 
  []
 
-[12] (./Report.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 383--384
+
+ []
+
+[12]
+Overfull \hbox (24.77904pt too wide) in paragraph at lines 401--404
+\T2A/cmr/m/n/12  роме то-го, фай-лы с ис-ход-ны-ми тек-ста-ми про-грамм при-кре
+п-ле-ны в тре-ке-ре на сай-те \T2A/cmr/m/it/12 dvmh.keldysh.ru\T2A/cmr/m/n/12 .
+ 
+ []
+
+[13] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 6488 strings out of 478994
- 86456 string characters out of 5858184
+ 6494 strings out of 478994
+ 86535 string characters out of 5858184
  644707 words of memory out of 5000000
- 23870 multiletter control sequences out of 15000+600000
+ 23876 multiletter control sequences out of 15000+600000
  419379 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,6n,74p,1047b,1652s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,6n,74p,1047b,1654s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-sup
 er/cm-super-t2a.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfo
@@ -714,10 +717,10 @@ x1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2
 pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pf
 b></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on Report.pdf (12 pages, 236166 bytes).
+Output written on Report.pdf (13 pages, 239831 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+ 101 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
