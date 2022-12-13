@@ -9,9 +9,9 @@ task2.out: task2.c
 	mpicc task2.c -o task2.out
 
 mainmpi: mainmpi.out
-	mpirun -n 16 --oversubscribe --with-ft ulfm ./mainmpi.out 100000
+	mpirun -n 8 --oversubscribe --with-ft ulfm ./mainmpi.out 100000
 mainmpi.out: mainmpi.c
-	mpicc mainmpi.c -o  mainmpi.out
+	mpicc mainmpi.c -O0 -o  mainmpi.out
 
 
 clean:

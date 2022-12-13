@@ -4,10 +4,10 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+//#include <iomanip>
 #include <mpi.h>
 #include <mpi-ext.h>
 #include <signal.h>
-#include <time.h>
 
 #define KILLED_PROCESS 2
 int MAKE_KILL = 1;
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 
     int i;
     int rc;
-    long double drob,drobSum=0,Result=0, sum;
+    long double drob,drobSum=0,Result, sum;
     double startwtime = 0.0;
     double endwtime;
     long double leftBorder = -1;
@@ -70,13 +70,8 @@ int main(int argc, char *argv[])
      
     */
     MPI_Comm_size(MPI_COMM_WORLD,&numprocs);
-    /*
-     
-    Установим генератор случайных чисел
-     
-    */
-    time_t t;
-    srand((unsigned) time(&t) + myid + 3);
+
+    
     
     main_comm = MPI_COMM_WORLD;
     
@@ -94,7 +89,6 @@ int main(int argc, char *argv[])
     MPI_Comm_create_errhandler(errhandler, &errh);
     MPI_Comm_set_errhandler(main_comm, errh);
     MPI_Barrier(main_comm);
-    MPI_Barrier(main_comm);
     /*
      
     Широковещательная рассылка по всем процессорам
@@ -103,16 +97,18 @@ int main(int argc, char *argv[])
 //    int n;
 //    MPI_Bcast(&n, 1, MPI_INT, 0, main_comm);
 checkpoint:
-    
+    if (myid == 0)
+    {
+        //printf("checkpoint_out %d\n", myid);
+    }
     MPI_Barrier(main_comm);
-    MPI_Barrier(main_comm);
+    //printf("checkpoint_in %d\n", myid);
     /*
      
     Cуммируем всё от каждого процесса в переменной dropsum
      
     */
-    drobSum = 0;
-    Result = 0;
+    //printf("calc_start %d\n", myid);
     for (long long int j = 0; j < N/numprocs; j++)
     {
         drobSum += cur_function(rand_point(leftBorder, rightBorder));
@@ -121,16 +117,13 @@ checkpoint:
             goto checkpoint;
         }
     }
-    
-    
+    //printf("calc_end %d\n", myid);
     
     /*
      
     Исскуственно моделируем отказ
      
     */
-    printf("proc: %d, val: %Lf \n", myid, drobSum);
-    MPI_Barrier(main_comm);
     MPI_Barrier(main_comm);
     if (myid == KILLED_PROCESS) {
         if (MAKE_KILL){
@@ -140,7 +133,6 @@ checkpoint:
     }
     
     
-    MPI_Barrier(main_comm);
     MPI_Barrier(main_comm);
     /*
      
@@ -152,23 +144,22 @@ checkpoint:
         error_occured = 0;
         goto checkpoint;
     }
-    
     MPI_Reduce(&drobSum, &Result, 1, MPI_LONG_DOUBLE, MPI_SUM, 0, main_comm);
 
     if (myid == 0)
     {
-        printf("Summ is: %Lf \n", Result);
-        printf("Answer is: %Lf \n", (rightBorder - leftBorder) * (Result / N));
+      printf("Answer is: %Lf \n", (rightBorder - leftBorder) * (Result / N));
     }
     /*
      
     Останавливаем выполнение mpi
      
     */
+    //printf("prog_end %d\n", myid);
     MPI_Barrier(main_comm);
-    MPI_Barrier(main_comm);
+    //printf("prog_end_end %d\n", myid);
     MPI_Finalize();
-    printf("Proc №%d finished\n", myid);
+    //printf("Proc №%d finished\n", myid);
     
     return 0;
 }
@@ -189,7 +180,7 @@ static void errhandler(MPI_Comm* pcomm, int* perr, ...) {
     if (myid == 0){
         printf("\nERROR!!\n");
     }
-    printf("Proc №%d in errhan\n", myid);
+    printf("check_ertrhand %d\n", myid);
     
     error_occured = 1;
     int err = *perr;
