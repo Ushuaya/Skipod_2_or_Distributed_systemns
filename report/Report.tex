@@ -91,16 +91,12 @@
 
 \section{Пояснения к решениям}
 \subsection{Моделирование}
-В транспьютерной матрице размером $4*4$, в каждом узле которой находится один про-
-цесс, необходимо выполнить операцию нахождения минимального значения и его координат среди $16$ чисел. Найденное минимальное значение должно быть получено
-на процессе с координатами $(0,0)$.
-Минимальное время оценивается через минимальное расстояние между двумя самыми дальними процессами в матрице. В нашем случае, чтобы пройти от процесса с
-координатами $(0, 0)$ к процессу с координатами $(3, 3)$, необходимо сделать $6$ шагов. Это
-количество шагов является минимальным, так как есть алгоритм, реализующий операцию нахождения минимума за $6$ шагов. Способ реализации:
+В транспьютерной матрице размером $4*4$, в каждом узле которой находится один процесс, необходимо выполнить операцию нахождения минимального значения и его координат среди $16$ чисел. 
+А предложенном алгоритме необходиммо сделать  $4$ шага, чтобы определить минимум и его координаты. Это количество шагов является минимальным для поставленной задачи. Способ реализации:
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.6\textwidth]{graph}
+  \includegraphics[width=0.8\textwidth]{graph}
 \end{figure}
 
 Данный алгоритм был реализован с помощью функций $MPI\_Send$ и $MPI\_Recv$. Получение топологии в виде транспьютерной матрицы произведено с помощью функции
@@ -112,10 +108,10 @@ $time = num\_steps · (T s + n · T b)$
 \end{center}
 
 где n - размер передаваемого сообщения в байтах. В нашем случае сообщением является
-число, размер которого может быть равен, $12$ байтам (3 числа в формате int).
+число, размер которого может быть равен, $8$ байтам (указатель на массив).
 Таким образом, при n = $12$, получаем:
 \begin{center}
-$time = 6 · (100 + 12 * 1) = 672$
+$time = 4 · (100 + 8 * 1) = 432$
 \end{center}
 \newpage
 Пересылка сообщений была организована с помощью двух функций, которые передавали по заданному "rank"  процесса: 
@@ -258,51 +254,15 @@ if (coords[0] == 1 && coords[1] == 3) {
     MPI_Barrier(comm);
 \end{lstlisting}
 
-Пятый шаг алгоритма
+После четырёх итераций ответ хранится в процессе с координатами (1, 1). Таким образом получаем ответ:
 \begin{lstlisting}
-if (coords[0] == 1 && coords[1] == 1) {
-        other_coords[0] = 0;
-        other_coords[1] = 1;
-        MPI_Cart_rank(comm, other_coords, &other_rank);
-        send_coords_and_value(result_coords, a, other_coords, other_rank, comm);
+ if (coords[0] == 1 && coords[1] == 1) {
+        printf("\n\nRESULTS:\n");
+        printf("Min result: %d\n", a);
+        printf("Min result coords: %d, %d\n", result_coords[0], result_coords[1]);
     }
-    if (coords[0] == 0 && coords[1] == 1) {
-        other_coords[0] = 1;
-        other_coords[1] = 1;
-        MPI_Cart_rank(comm, other_coords, &other_rank);
-        receive_coords_and_value(coords, &result, other_coords, other_rank, comm);
-        if (result < a) {
-            a = result;
-            result_coords[0] = other_coords[0];
-            result_coords[1] = other_coords[1];
-        }
-    }
-    MPI_Barrier(comm);
 \end{lstlisting}
 
-\newpage
-Шестой шаг алгоритма:
-\begin{lstlisting}
-if (coords[0] == 0 && coords[1] == 1) {
-        other_coords[0] = 0;
-        other_coords[1] = 0;
-        MPI_Cart_rank(comm, other_coords, &other_rank);
-        send_coords_and_value(result_coords, a, other_coords, other_rank, comm);
-    }
-    if (coords[0] == 0 && coords[1] == 0) {
-        other_coords[0] = 0;
-        other_coords[1] = 1;
-        MPI_Cart_rank(comm, other_coords, &other_rank);
-        receive_coords_and_value(coords, &result, other_coords, other_rank, comm);
-        if (result < a) {
-            a = result;
-            result_coords[0] = other_coords[0];
-            result_coords[1] = other_coords[1];
-        }
-    }
-    
-    MPI_Barrier(comm);
-\end{lstlisting}
 
 
 \newpage

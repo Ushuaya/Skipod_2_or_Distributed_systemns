@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.2.23)  13 DEC 2022 11:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.2.23)  13 DEC 2022 11:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -627,80 +627,80 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout3 = `Report.toc'.
 
  [2] [3]
-<pics//graph.png, id=25, 1056.94875pt x 677.53125pt>
+<pics//graph.png, id=25, 1006.76125pt x 644.4075pt>
 File: pics//graph.png Graphic file (type png)
 <use pics//graph.png>
-Package pdftex.def Info: pics//graph.png  used on input line 103.
-(pdftex.def)             Requested size: 307.2929pt x 196.97527pt.
+Package pdftex.def Info: pics//graph.png  used on input line 99.
+(pdftex.def)             Requested size: 409.72125pt x 262.25204pt.
 
-Overfull \hbox (21.94783pt too wide) in paragraph at lines 106--110
+Overfull \hbox (21.94783pt too wide) in paragraph at lines 102--106
 \T2A/cmr/m/n/12 ние то-по-ло-гии в ви-де транс-пью-тер-ной мат-ри-цы про-из-ве-
 де-но с по-мо-щью функ-ции $\OML/cmm/m/it/12 MPI[]Cart[]rank$\T2A/cmr/m/n/12 .
  []
 
 
 LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 1
-11.
+07.
 
 
 LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 1
-11.
+07.
 
 
 LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 1
-11.
+07.
 
 
 LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 1
-11.
+07.
 
 Missing character: There is no · in font cmr12!
 Missing character: There is no · in font cmr12!
 
 LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 1
-18.
+14.
 
 
 LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 1
-18.
+14.
 
 Missing character: There is no · in font cmr12!
 [4 <./pics//graph.png>]
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
-122.
+118.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
-Overfull \hbox (39.83324pt too wide) in paragraph at lines 138--139
+Overfull \hbox (39.83324pt too wide) in paragraph at lines 134--135
 \T2A/cmr/m/n/12 то-го в тре-тий. По-это-му в 0 и 3 ко-ор-ди-на-те по вер-ти-ка-
 ли мы вы-зы-ва-ем функ-цию \T2A/cmr/m/it/12 send_coords_and_value\T2A/cmr/m/n/1
 2 ,
  []
 
-[5] [6] [7] [8] [9] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
+[5] [6] [7] [8] [9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 321--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
 
  []
 
-[12]
-Overfull \hbox (24.77904pt too wide) in paragraph at lines 401--404
+[11]
+Overfull \hbox (24.77904pt too wide) in paragraph at lines 361--364
 \T2A/cmr/m/n/12 Кроме то-го, фай-лы с ис-ход-ны-ми тек-ста-ми про-грамм при-кре
 п-ле-ны в тре-ке-ре на сай-те \T2A/cmr/m/it/12 dvmh.keldysh.ru\T2A/cmr/m/n/12 .
  
  []
 
-[13] (./Report.aux) ) 
+[12] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 6494 strings out of 478994
- 86535 string characters out of 5858184
- 644707 words of memory out of 5000000
- 23876 multiletter control sequences out of 15000+600000
+ 6495 strings out of 478994
+ 86546 string characters out of 5858184
+ 635707 words of memory out of 5000000
+ 23877 multiletter control sequences out of 15000+600000
  419379 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,6n,74p,1047b,1654s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -717,10 +717,10 @@ x1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2
 pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pf
 b></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on Report.pdf (13 pages, 239831 bytes).
+Output written on Report.pdf (12 pages, 243019 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 97 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
