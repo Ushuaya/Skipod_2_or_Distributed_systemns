@@ -226,55 +226,9 @@ int main(int argc, char **argv)
     MPI_Barrier(comm);
     
     print_matr(coords, tmp_status, a, rank);
+
     
-    // Step 5
     if (coords[0] == 1 && coords[1] == 1) {
-        other_coords[0] = 0;
-        other_coords[1] = 1;
-        MPI_Cart_rank(comm, other_coords, &other_rank);
-        send_coords_and_value(result_coords, a, other_coords, other_rank, comm);
-    }
-    if (coords[0] == 0 && coords[1] == 1) {
-        other_coords[0] = 1;
-        other_coords[1] = 1;
-        MPI_Cart_rank(comm, other_coords, &other_rank);
-        receive_coords_and_value(coords, &result, other_coords, other_rank, comm);
-        //if (result < a)
-        {
-            a = result;
-            result_coords[0] = other_coords[0];
-            result_coords[1] = other_coords[1];
-        }
-    }
-    MPI_Barrier(comm);
-    
-    print_matr(coords, tmp_status, a, rank);
-    
-    // Step 6
-    if (coords[0] == 0 && coords[1] == 1) {
-        other_coords[0] = 0;
-        other_coords[1] = 0;
-        MPI_Cart_rank(comm, other_coords, &other_rank);
-        send_coords_and_value(result_coords, a, other_coords, other_rank, comm);
-    }
-    if (coords[0] == 0 && coords[1] == 0) {
-        other_coords[0] = 0;
-        other_coords[1] = 1;
-        MPI_Cart_rank(comm, other_coords, &other_rank);
-        receive_coords_and_value(coords, &result, other_coords, other_rank, comm);
-        //if (result < a)
-        {
-            a = result;
-            result_coords[0] = other_coords[0];
-            result_coords[1] = other_coords[1];
-        }
-    }
-    
-    MPI_Barrier(comm);
-    
-    print_matr(coords, tmp_status, a, rank);
-    
-    if (coords[0] == 0 && coords[1] == 0) {
         printf("\n\nRESULTS:\n");
         printf("Min result: %d\n", a);
         printf("Min result coords: %d, %d\n", result_coords[0], result_coords[1]);
